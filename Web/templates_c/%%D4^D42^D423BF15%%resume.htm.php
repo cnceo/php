@@ -1,8 +1,17 @@
-{yun:}include file="$userstyle/header.htm"{/yun}
+<?php /* Smarty version 2.6.26, created on 2015-07-30 14:27:07
+         compiled from member/user/resume.htm */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'date_format', 'member/user/resume.htm', 119, false),array('function', 'url', 'member/user/resume.htm', 135, false),)), $this); ?>
+<?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => ($this->_tpl_vars['userstyle'])."/header.htm", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
 <script type="text/javascript">  
 
 function gourl(){
-	layer.confirm('确定要创建新的简历吗？', function(){window.location.href='index.php?c=expect&add={yun:}$uid{/yun}';window.event.returnValue = false;return false;   });
+	layer.confirm('确定要创建新的简历吗？', function(){window.location.href='index.php?c=expect&add=<?php echo $this->_tpl_vars['uid']; ?>
+';window.event.returnValue = false;return false;   });
 }  
 
 
@@ -84,7 +93,11 @@ function exportResume(){
     </ul>
 </div>
 <div class="w950"> 
-	{yun:}include file="$userstyle/left.htm"{/yun}
+	<?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => ($this->_tpl_vars['userstyle'])."/left.htm", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
 	<div class="mian_right fltR mt12 re">
     <div class="tabmenubox01 mt9">
       <ul>
@@ -99,62 +112,82 @@ function exportResume(){
     <div id="" class="resume_box_list">
     <div class="resume_Prompt">提示：所有简历均可用于投递职位；当隐私设置为"公开"时，仅默认简历可以被企业搜索到 </div>
     <div class="clear"></div>
-    {yun:}foreach item=resume from=$rows{/yun}
-    <div class="resume_list_mr {yun:}if $resume.id==$def_job{/yun}index_resume_box_Set{yun:}else{/yun}resume_list_bor{yun:}/if{/yun}">
-    {yun:}if $resume.id==$def_job{/yun}<div class="index_resume_Set">默认简历</div>{yun:}/if{/yun}
-    <div class="resume_list_mr_name">{yun:}$resume.name{/yun}</div>
+    <?php $_from = $this->_tpl_vars['rows']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['resume']):
+?>
+    <div class="resume_list_mr <?php if ($this->_tpl_vars['resume']['id'] == $this->_tpl_vars['def_job']): ?>index_resume_box_Set<?php else: ?>resume_list_bor<?php endif; ?>">
+    <?php if ($this->_tpl_vars['resume']['id'] == $this->_tpl_vars['def_job']): ?><div class="index_resume_Set">默认简历</div><?php endif; ?>
+    <div class="resume_list_mr_name"><?php echo $this->_tpl_vars['resume']['name']; ?>
+</div>
     <div class="resume_list_mr_wzd fltL">
     <div class="resume_list_mr_wz_left">
     <span class="resume_list_mr_wzdleft">完整度：</span><span class="shell fltL shell_mt">
-<i style="width:{yun:}$resume.integrity{/yun}%"></i>
+<i style="width:<?php echo $this->_tpl_vars['resume']['integrity']; ?>
+%"></i>
 </span>
-<font class="red">{yun:}if $resume.integrity{/yun}{yun:}$resume.integrity{/yun}{yun:}else{/yun}0{yun:}/if{/yun}%</font>
+<font class="red"><?php if ($this->_tpl_vars['resume']['integrity']): ?><?php echo $this->_tpl_vars['resume']['integrity']; ?>
+<?php else: ?>0<?php endif; ?>%</font>
 </div>
 <div class="resume_list_mr_cont">
 
 
-<a title="上传作品" href="index.php?c=show&eid={yun:}$resume.id{/yun}" class="resume_list_gj_r_zp png">上传作品案例</a>
-<div class="resume_list_gj_ln"><span class="resume_list_ln_cs">{yun:}$resume.hits{/yun}</span>被浏览</div>
+<a title="上传作品" href="index.php?c=show&eid=<?php echo $this->_tpl_vars['resume']['id']; ?>
+" class="resume_list_gj_r_zp png">上传作品案例</a>
+<div class="resume_list_gj_ln"><span class="resume_list_ln_cs"><?php echo $this->_tpl_vars['resume']['hits']; ?>
+</span>被浏览</div>
 </div>
-<span class="resume_list_date fltR">更新时间：{yun:}$resume.lastupdate|date_format:'%Y-%m-%d'{/yun}</span>
+<span class="resume_list_date fltR">更新时间：<?php echo ((is_array($_tmp=$this->_tpl_vars['resume']['lastupdate'])) ? $this->_run_mod_handler('date_format', true, $_tmp, '%Y-%m-%d') : smarty_modifier_date_format($_tmp, '%Y-%m-%d')); ?>
+</span>
 
 </div>
 
     <div class="index_resume_Operating mt10 fltL ">
-		<span class="index_resume_Operating_l  fltL ">简历类型：{yun:}if $resume.doc=='1'{/yun}快速简历{yun:}else{/yun}标准简历{yun:}/if{/yun}
-		&nbsp; &nbsp; &nbsp; &nbsp;系统为您匹配相似职位：<a href="index.php?c=likejob&id={yun:}$resume.id{/yun}" class="index_resume_Operating_la">点击查看详情</a></span>
+		<span class="index_resume_Operating_l  fltL ">简历类型：<?php if ($this->_tpl_vars['resume']['doc'] == '1'): ?>快速简历<?php else: ?>标准简历<?php endif; ?>
+		&nbsp; &nbsp; &nbsp; &nbsp;系统为您匹配相似职位：<a href="index.php?c=likejob&id=<?php echo $this->_tpl_vars['resume']['id']; ?>
+" class="index_resume_Operating_la">点击查看详情</a></span>
 		<span class="resume_Operating_r fltR">
-		 {yun:}if $resume.id!=$def_job{/yun}
-		<a href="javascript:setdef_resume('{yun:}$resume.id{/yun}');" class="resume_Operating_mr">设为默认</a>
+		 <?php if ($this->_tpl_vars['resume']['id'] != $this->_tpl_vars['def_job']): ?>
+		<a href="javascript:setdef_resume('<?php echo $this->_tpl_vars['resume']['id']; ?>
+');" class="resume_Operating_mr">设为默认</a>
 		|
-		{yun:}/if{/yun}
-		<a class="index_resume_Operating_a" title="置顶" href="javascript:void(0)" onclick="resumetop('{yun:}$resume.id{/yun}','{yun:}$resume.topdate{/yun}')">置顶</a>
+		<?php endif; ?>
+		<a class="index_resume_Operating_a" title="置顶" href="javascript:void(0)" onclick="resumetop('<?php echo $this->_tpl_vars['resume']['id']; ?>
+','<?php echo $this->_tpl_vars['resume']['topdate']; ?>
+')">置顶</a>
 		|
-		<a class="index_resume_Operating_a" title="修改" href="index.php?c=expect{yun:}if $resume.doc{/yun}q{yun:}/if{/yun}&e={yun:}$resume.id{/yun}">修改</a>
+		<a class="index_resume_Operating_a" title="修改" href="index.php?c=expect<?php if ($this->_tpl_vars['resume']['doc']): ?>q<?php endif; ?>&e=<?php echo $this->_tpl_vars['resume']['id']; ?>
+">修改</a>
 		|
-		<a class="index_resume_Operating_a"  title="预览" target="_blank" href="{yun:}url m=resume url=id:`$resume.id`,tmp:`$resume.tmpid`{/yun}">预览</a>
+		<a class="index_resume_Operating_a"  title="预览" target="_blank" href="<?php echo smarty_function_url(array('m' => 'resume','url' => "id:".($this->_tpl_vars['resume']['id']).",tmp:".($this->_tpl_vars['resume']['tmpid'])), $this);?>
+">预览</a>
 		|
-		<a class="index_resume_Operating_a" href="javascript:void(0)" onclick="layer_del('确定要刷新？', '{yun:}$now_url{/yun}&act=refresh&id={yun:}$resume.id{/yun}');" title="刷新">刷新</a>
+		<a class="index_resume_Operating_a" href="javascript:void(0)" onclick="layer_del('确定要刷新？', '<?php echo $this->_tpl_vars['now_url']; ?>
+&act=refresh&id=<?php echo $this->_tpl_vars['resume']['id']; ?>
+');" title="刷新">刷新</a>
 		|
-		<a class="index_resume_Operating_a"  href="javascript:void(0)" onclick="layer_del('确定要删除？', '{yun:}$now_url{/yun}&act=del&id={yun:}$resume.id{/yun}');" >删除</a> 
+		<a class="index_resume_Operating_a"  href="javascript:void(0)" onclick="layer_del('确定要删除？', '<?php echo $this->_tpl_vars['now_url']; ?>
+&act=del&id=<?php echo $this->_tpl_vars['resume']['id']; ?>
+');" >删除</a> 
 		</span>
 	</div>
     </div>
     
     <div class="clear"></div>
-          {yun:}foreachelse{/yun}
+          <?php endforeach; else: ?>
           <div class="msg_no">暂无简历！</div>
-          {yun:}/foreach{/yun}
+          <?php endif; unset($_from); ?>
         
-        <div class="resume_cj">{yun:}if $confignum!=""{/yun}您还可以创建 <span class="resume_cj_sz">({yun:}$maxnum{/yun})</span> 份备用简历{yun:}/if{/yun}
-		{yun:}if $maxnum>1{/yun}
+        <div class="resume_cj"><?php if ($this->_tpl_vars['confignum'] != ""): ?>您还可以创建 <span class="resume_cj_sz">(<?php echo $this->_tpl_vars['maxnum']; ?>
+)</span> 份备用简历<?php endif; ?>
+		<?php if ($this->_tpl_vars['maxnum'] > 1): ?>
 		<a class="thickbox" title="创建新简历" href="javascript:void(0)" onclick="gourl();return false;">创建新简历</a>
-        <a href="index.php?c=expectq&add={yun:}$uid{/yun}" title="直接粘贴已有的个人简历"class="thickbox2" >在线粘贴简历</a>
+        <a href="index.php?c=expectq&add=<?php echo $this->_tpl_vars['uid']; ?>
+" title="直接粘贴已有的个人简历"class="thickbox2" >在线粘贴简历</a>
         <a class="thickbox2" title="导入简历" href="javascript:void(0)" onclick="showExport();">导入简历</a><!--简历导入-->
-		{yun:}else{/yun}
+		<?php else: ?>
 		<a class="thickbox" title="创建新简历" href="javascript:void(0)" onclick="layer.msg('你的简历数已经达到系统设置的简历数了',2,8);return false;">创建新简历</a>
         <a href="javascript:void(0)" onclick="layer.msg('你的简历数已经达到系统设置的简历数了',2,8);return false;" title="直接粘贴已有的个人简历"class="thickbox2" >在线粘贴简历</a>
-		{yun:}/if{/yun}</div>
+		<?php endif; ?></div>
            <div  class="clear"></div>
     <div class="wxts_box wxts_box_mt30">
 <div class="wxts">温馨提示：</div>
@@ -179,4 +212,8 @@ function exportResume(){
     </div> 
 </div>
 <iframe id="supportiframe"  name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
-{yun:}include file="$userstyle/footer.htm"{/yun}
+<?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => ($this->_tpl_vars['userstyle'])."/footer.htm", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
