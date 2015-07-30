@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
 * $Author £ºPHPYUN¿ª·¢ÍÅ¶Ó
 *

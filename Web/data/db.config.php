@@ -2,13 +2,13 @@
   $db_config = array(
       'dbtype'=>'mysql',
       'dbhost'=>'localhost',
-      'dbuser'=>'lianxin',
-      'dbpass'=>'lianxin',
-      'dbname'=>'qmt',
+      'dbuser'=>'root',
+      'dbpass'=>'abcdef123',
+      'dbname'=>'toptophr_com',
       'def'=>'phpyun_',
-      'charset'=>'utf-8',
+      'charset'=>'GBK',
       'timezone'=>'PRC',
-      'coding'=>'48f0d5ad196299b8d0357ac684f2777a', //生成cookie加密
+      'coding'=>'eb08dfa4083fa1b85291dd182712a15d', //生成cookie加密
       'version'=>'3.2',//版本号
     );
     

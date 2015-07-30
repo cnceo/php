@@ -127,7 +127,7 @@ window.layer = {
 	
     //加载弹出div层
 	/*div: function(title,width,height, div){ 
-		 $.layer({
+		return $.layer({
 			$.layer({
 				type : 1,
 				title :title,
