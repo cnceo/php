@@ -29,7 +29,60 @@ function showmsg(msg){
 		page : {dom :"#showmsg"}
 	});
 } 
+
+function showExport(){
+	$.layer({
+				type : 1,
+				title :'简历导入',
+				offset: [($(window).height() - 300)/2 + 'px', ''],
+				closeBtn : [0 , true],
+				border : [10 , 0.3 , '#000', true],
+				area : ['300px','260px'],
+				page : {dom :"#imResume"}
+		});
+}
+function exportResume(){
+	var pwd = $("#password").val();
+	var user = $("#username").val();
+	var type= $('input[name="ext"]:checked').val();
+	console.log("val"+pwd+user+type);
+	var data = {"password":pwd,"username":user,"type":type};
+	$.ajax({
+			type:"POST",
+			url:"../template/member/include/getResume.php",
+			data:data,
+			timeout: 3000,
+			success:function(obj,status){
+				console.log(obj);
+			},
+			error:function(err){
+		  		console.log("err");
+			}
+		
+	});
+}
 </script>
+<!--简历导入模板-->
+<div id="imResume" style="display:none;position:relative;top:-30px;left:0;">
+    <ul  style="padding:45px;line-height:35px;">
+    	<h3>登录第三方平台</h3>
+    <hr/>
+    	<li>
+        	 <label>用户名：</label><input class = "info_text" id = "username" name="username">
+        </li>
+        <li>
+        	 <label>密&nbsp;&nbsp;&nbsp;码：</label><input type="password" class = "info_text" id = "password" name="password">
+        </li>
+        <li>
+        	<input type="radio" name="ext" value = "智联招聘" checked="checked"><label>智联招聘</label>
+            <input type="radio" name="ext" value = "中华英才"><label>中华英才</label>
+            <input type="radio" name="ext" value = "前程无忧"><label>前程无忧</label>
+        </li>
+        <li>
+        	<button class="com_pop_bth" onclick = "exportResume()" style="margin-left:50px;">开始导入</button>
+        </li>
+    </ul>
+</div>
 <div class="w950"> 
 	{yun:}include file="$userstyle/left.htm"{/yun}
 	<div class="mian_right fltR mt12 re">
@@ -95,9 +148,12 @@ function showmsg(msg){
         
         <div class="resume_cj">{yun:}if $confignum!=""{/yun}您还可以创建 <span class="resume_cj_sz">({yun:}$maxnum{/yun})</span> 份备用简历{yun:}/if{/yun}
 		{yun:}if $maxnum>1{/yun}
-		<a class="thickbox" title="创建新简历" href="javascript:void(0)" onclick="gourl();return false;">创建新简历</a> <a href="index.php?c=expectq&add={yun:}$uid{/yun}" title="直接粘贴已有的个人简历"class="thickbox2" >在线粘贴简历</a>
+		<a class="thickbox" title="创建新简历" href="javascript:void(0)" onclick="gourl();return false;">创建新简历</a>
+        <a href="index.php?c=expectq&add={yun:}$uid{/yun}" title="直接粘贴已有的个人简历"class="thickbox2" >在线粘贴简历</a>
+        <a class="thickbox2" title="导入简历" href="javascript:void(0)" onclick="showExport();">导入简历</a><!--简历导入-->
 		{yun:}else{/yun}
-		<a class="thickbox" title="创建新简历" href="javascript:void(0)" onclick="layer.msg('你的简历数已经达到系统设置的简历数了',2,8);return false;">创建新简历</a> <a href="javascript:void(0)" onclick="layer.msg('你的简历数已经达到系统设置的简历数了',2,8);return false;" title="直接粘贴已有的个人简历"class="thickbox2" >在线粘贴简历</a>
+		<a class="thickbox" title="创建新简历" href="javascript:void(0)" onclick="layer.msg('你的简历数已经达到系统设置的简历数了',2,8);return false;">创建新简历</a>
+        <a href="javascript:void(0)" onclick="layer.msg('你的简历数已经达到系统设置的简历数了',2,8);return false;" title="直接粘贴已有的个人简历"class="thickbox2" >在线粘贴简历</a>
 		{yun:}/if{/yun}</div>
            <div  class="clear"></div>
     <div class="wxts_box wxts_box_mt30">
