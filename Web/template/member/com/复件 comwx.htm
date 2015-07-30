@@ -1,0 +1,467 @@
+{yun:}include file="$comstyle/header.htm"{/yun}
+
+	<!-- BEGIN CONTAINER -->
+
+	<div class="page-container">
+
+		<!-- BEGIN 左侧导航 -->
+
+		 {yun:}include file="$comstyle/left.htm"{/yun} 
+    <script charset="utf-8" src="../data/kindeditor/kindeditor-min.js"></script> 
+    <script charset="utf-8" src="../data/kindeditor/lang/zh_CN.js"></script> 
+    <script language="javascript">
+var editor;
+KindEditor.ready(function(K){
+	editor = K.create('#content',{
+		resizeType : 1,
+		allowPreviewEmoticons : false,
+		allowImageUpload : false,
+		items : ['source',
+		'bold', 'italic', 'underline',
+		'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+		'insertunorderedlist','emoticons']
+	});
+});
+</script>
+
+		<!-- END 左侧导航 -->
+
+		<!-- BEGIN 右侧内容 -->
+
+		<div class="page-content">
+
+
+			<!-- BEGIN PAGE CONTAINER-->
+
+    <div class='right_box'> 
+      <div class=admincont_box>
+	  <iframe id="supportiframe"  name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+        <form name="myform" method="post" target="supportiframe"  action="index.php?c=info&act=save" enctype="multipart/form-data" onsubmit="return checkpost();">
+		<input type="hidden" name="name"  value="{yun:}$row.name{/yun}">
+		<input type="hidden" name="hy"  value="{yun:}$row.hy{/yun}">
+		<input type="hidden" name="pr"  value="{yun:}$row.pr{/yun}">
+		<input type="hidden" name="provinceid"  value="{yun:}$row.provinceid{/yun}">
+		<input type="hidden" name="mun"  value="{yun:}$row.mun{/yun}">
+		<input type="hidden" name="address"  value="{yun:}$row.address{/yun}">
+		<input type="hidden" name="linkmail"  value="{yun:}$row.linkmail{/yun}">
+		
+        <div class=admin_tit> <span class="admin_tit_bg">绑定您的微信服务号</span></div>
+        <div class=admin_textbox_02>
+        <ul> 
+          <li>
+            <div class=tit><font color="#FF0000">*</font> 公众号帐号：</div>
+            <div class=textbox>
+            	<input type="text" size="45" name="wxname"  value="{yun:}$row.wxname{/yun}"class="com_info_text">
+              <span id="by_name" style="color:#FF6600">请正确输入微信服务号的登陆帐号</span></div>
+          </li>
+          
+          <li>
+            <div class=tit><font color="#FF0000">*</font> 公众号密码：</div>
+            <div class=textbox>
+              <input type="text" name="wxpassword" size="25"  value="{yun:}$row.wxpassword{/yun}" class="com_info_text" />
+             <span id="by_name" style="color:#FF6600">请正确输入微信服务号的登陆密码</span></div>
+          </li>
+		  
+		  <li>
+            <div class=tit><font color="#FF0000">*</font> 公众号介绍：</div>
+            <div class=textbox>
+              <textarea name="content" id="content" cols="60" rows="8">{yun:}$row.content{/yun}</textarea>
+              <span id="by_content" class="errordisplay">企业简介不能为空</span> </div>
+          </li>
+		  
+		  
+		  </ul>
+		  <div class=admin_submit>
+          <div class=condition>&nbsp;</div>
+          <div class=sub_btn><input class="btn_01"  type="submit" name="submitbtn" value="提交申请"></div> 
+		</div>
+	  </form>
+	 </div>
+   </div>
+       
+          <style>
+.ke-statusbar{
+display:none;
+}
+</style>
+          <div class="admin_tit" id='for_logo'><span class="admin_tit_bg">微信菜单设置</span></div>
+          
+<!--<link href="../admin/images/reset.css" rel="stylesheet" type="text/css" />-->
+<link href="../admin/images/table_form.css" rel="stylesheet" type="text/css" />
+<script src="../js/jquery-1.8.0.min.js"></script>
+<script src="../js/layer/layer.min.js" language="javascript"></script>
+<script src="../admin/js/admin_public.js" language="javascript"></script>  
+
+<script type="text/javascript">
+function save_industry(){ 
+	var name  =$("input[name='add_name']").val();
+	var pytoken =$("#pytoken").val();
+	var keyid =$("#add_keyid").val();
+	var key  =$("input[name='add_key']").val();
+	var type  =$("#add_type").val();
+	var url  =$("input[name='add_url']").val();
+	var sort  =$("input[name='add_sort']").val();
+	var navid = $("#navid").val(); 
+	if($.trim(name)==''){
+		parent.layer.msg('菜单名称不能为空！', 2, 8);return false;
+	}
+	if(keyid !='0' && type=='click' && type==''){
+		parent.layer.msg('点击事件，菜单关键字不得为空！', 2, 8);return false;
+	}
+	if(keyid !='0' && type=='view' && url==''){
+		parent.layer.msg('链接事件，菜单链接不得为空！', 2, 8);return false;
+	}
+	
+	$.post("index.php?m=wx&c=edit",{name:name,keyid:keyid,type:type,key:key,url:url,sort:sort,navid:navid,pytoken:pytoken},function(msg){
+		if(msg==1){ 
+			parent.layer.msg('请按要求填写信息！', 2, 8);return false;
+		}else if(msg==2){
+			parent.layer.msg('相同名称或关键字已存在！', 2, 8);return false;
+		}else if(msg==3){
+			parent.layer.msg('操作成功！', 2,9,function(){location=location ;});return false;
+		}else if(msg==4){
+			parent.layer.msg('操作成功！', 2,8,function(){location=location ;});return false;
+		}
+	}); 
+}
+function checksort(id){
+	$("#sort"+id).hide();
+	$("#input"+id).show();
+	$("#input"+id).focus();
+}	
+function subsort(id){
+	var sort=$("#input"+id).val();
+	var pytoken=$("#pytoken").val();
+	$.post("index.php?m=wx&c=ajax",{id:id,sort:sort,pytoken:pytoken},function(data){
+		$("#sort"+id).html(sort);
+		$("#sort"+id).show();
+		$("#input"+id).hide();
+		if(data!='1'){config_msg(data);}else{location.reload();}
+	})
+}
+function checkname(id){
+	$("#name"+id).hide();
+	$("#inputname"+id).show();
+	$("#inputname"+id).focus();
+}	
+function subname(id){
+	var pytoken=$("#pytoken").val();
+	var name=$("#inputname"+id).val();
+	$.post("index.php?m=wx&c=ajax",{id:id,name:name,pytoken:pytoken},function(data){
+		$("#name"+id).html(name);
+		$("#name"+id).show();
+		$("#inputname"+id).hide();
+		if(data!='1'){config_msg(data);}else{location.reload();}
+	})
+}
+
+function editnav(id,name,keyid,key,type,url,sort){	
+	$("#navid").val(id);
+	$("input[name='add_name']").val(name);	
+	$("input[name='add_sort']").val(sort);
+	if(parseInt(keyid)>0){
+		$("#add_keyid").val(keyid);
+		$("input[name='add_key']").val(key);
+		$("#add_type").val(type);
+		$("input[name='add_url']").val(url);
+		$('.buttonson').show();
+		add_class('修改微信菜单','300','270','#houtai_div','');
+	}else{		
+		$('.buttonson').hide();
+		add_class('修改微信菜单','300','200','#houtai_div','');
+	}		
+}
+function showbuton(){	
+	var value = $('#add_keyid').val();	
+	if(value!='0'){		
+		$(".xubox_close").trigger("click");
+		$('.buttonson').show();
+		add_class('新增微信菜单','300','270','#houtai_div','');	
+	}else{
+		$(".xubox_close").trigger("click");
+		$('.buttonson').hide();
+		add_class('新增微信菜单','300','200','#houtai_div','');		
+	}
+	
+}
+
+function clearnav(){  
+	$("#navid").val('');
+	$("input[name='add_name']").val('');
+	$("#add_keyid").val(0);
+	$("input[name='add_key']").val('');
+	$("#add_type").val('click');
+	$("input[name='add_url']").val('');
+	$("input[name='add_sort']").val(''); 
+} 
+function navsync(){
+	parent.layer.confirm('确定要同步菜单至微信服务器？',function(){
+		parent.layer.load('执行中，请稍候...',0);
+		var pytoken=$("#pytoken").val();	
+		$.get("index.php?m=wx&c=creat&pytoken="+pytoken,function(msg){
+			if(msg==1){
+				parent.layer.msg('微信菜单创建成功！', 2, 9);return false;
+			}else{
+				parent.layer.msg('微信菜单创建失败！', 2,8);return false;
+			}
+		}); 
+	});
+}
+</script> 
+<div class="infoboxp"> <div class="infoboxp_top_bg"></div>
+
+<div class="clear"></div>
+<div class="table-list">
+  <div class="admin_table_border">
+<form action="index.php?m=wx&c=delnav" method="post" target="supportiframe" id='myform'>  
+<style>
+table.tableform td{padding-left:10px}
+</style>
+<table width="100%" class="tableform">
+	<thead>
+	<tr class="admin_table_top">
+		<th  width="180">菜单标题</th>
+        <th>菜单类型</th>
+         <th>菜单关键字</th>
+        <th>菜单链接</th>
+        <th>排序</th>
+		<th class="admin_table_th_bg">操作</th>
+	</tr>
+	</thead>
+	<tbody>
+		<tr align="left">
+		<td class="ud"><span onClick="checkname('1');" id="name1" style="cursor:pointer;">我的菜单</span> <input class="input-text hidden" type="text" id="inputname1"value="我的菜单" onBlur="subname('1');"></td>
+		<td class="ud">click</td>
+        <td></td>
+		<td></td>
+        <td><span onClick="checksort('1');" id="sort1" style="cursor:pointer;">1</span>
+        <input class="input-text hidden" type="text" id="input1" size="10" value="1" onBlur="subsort('1');"></td>
+		<td class="ud">
+         <a href="javascript:editnav('1','我的菜单','0','','click','','1');" class="admin_cz_bj">修改</a>
+        <A href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=1');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+         
+	<tr align="left">
+		<td class="ud">----<span onClick="checkname('4');" id="name4" style="cursor:pointer;">我的帐号</span> <input class="input-text hidden" type="text" id="inputname4"value="我的帐号" onBlur="subname('4');"></td>
+		<td class="ud">click</td>
+         <td>我的帐号</td>
+		<td></td>
+        <td><span onClick="checksort('4');" id="sort4" style="cursor:pointer;">4</span>
+        <input class="input-text hidden" type="text" id="input4" size="10" value="4" onBlur="subsort('4');"></td>
+		<td class="ud">
+          <a href="javascript:editnav('4','我的帐号','1','我的帐号','click','','4');" class="admin_cz_bj">修改</a>
+        <a href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=4');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+	 
+	<tr align="left">
+  	    
+		<td class="ud">----<span onClick="checkname('5');" id="name5" style="cursor:pointer;">我的消息</span> <input class="input-text hidden" type="text" id="inputname5"value="我的消息" onBlur="subname('5');"></td>
+		<td class="ud">click</td>
+         <td>我的消息</td>
+		<td></td>
+        <td><span onClick="checksort('5');" id="sort5" style="cursor:pointer;">5</span>
+        <input class="input-text hidden" type="text" id="input5" size="10" value="5" onBlur="subsort('5');"></td>
+		<td class="ud">
+          <a href="javascript:editnav('5','我的消息','1','我的消息','click','','5');" class="admin_cz_bj">修改</a>
+        <a href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=5');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+	 
+	<tr align="left">
+		<td class="ud">----<span onClick="checkname('6');" id="name6" style="cursor:pointer;">面试邀请</span> <input class="input-text hidden" type="text" id="inputname6"value="面试邀请" onBlur="subname('6');"></td>
+		<td class="ud">click</td>
+         <td>面试邀请</td>
+		<td></td>
+        <td><span onClick="checksort('6');" id="sort6" style="cursor:pointer;">6</span>
+        <input class="input-text hidden" type="text" id="input6" size="10" value="6" onBlur="subsort('6');"></td>
+		<td class="ud">
+          <a href="javascript:editnav('6','面试邀请','1','面试邀请','click','','6');" class="admin_cz_bj">修改</a>
+        <a href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=6');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+	 
+	<tr align="left">
+		<td class="ud">----<span onClick="checkname('7');" id="name7" style="cursor:pointer;">简历查看</span> <input class="input-text hidden" type="text" id="inputname7"value="简历查看" onBlur="subname('7');"></td>
+		<td class="ud">click</td>
+         <td>简历查看</td>
+		<td></td>
+        <td><span onClick="checksort('7');" id="sort7" style="cursor:pointer;">7</span>
+        <input class="input-text hidden" type="text" id="input7" size="10" value="7" onBlur="subsort('7');"></td>
+		<td class="ud">
+          <a href="javascript:editnav('7','简历查看','1','简历查看','click','','7');" class="admin_cz_bj">修改</a>
+        <a href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=7');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+	 
+	<tr align="left">
+		<td class="ud">----<span onClick="checkname('8');" id="name8" style="cursor:pointer;">刷新简历</span> <input class="input-text hidden" type="text" id="inputname8"value="刷新简历" onBlur="subname('8');"></td>
+		<td class="ud">click</td>
+         <td>刷新简历</td>
+		<td></td>
+        <td><span onClick="checksort('8');" id="sort8" style="cursor:pointer;">8</span>
+        <input class="input-text hidden" type="text" id="input8" size="10" value="8" onBlur="subsort('8');"></td>
+		<td class="ud">
+          <a href="javascript:editnav('8','刷新简历','1','刷新简历','click','','8');" class="admin_cz_bj">修改</a>
+        <a href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=8');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+	 
+    	<tr align="left">
+		<td class="ud"><span onClick="checkname('2');" id="name2" style="cursor:pointer;">找工作</span> <input class="input-text hidden" type="text" id="inputname2"value="找工作" onBlur="subname('2');"></td>
+		<td class="ud">click</td>
+        <td></td>
+		<td></td>
+        <td><span onClick="checksort('2');" id="sort2" style="cursor:pointer;">2</span>
+        <input class="input-text hidden" type="text" id="input2" size="10" value="2" onBlur="subsort('2');"></td>
+		<td class="ud">
+         <a href="javascript:editnav('2','找工作','0','','click','','2');" class="admin_cz_bj">修改</a>
+        <A href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=2');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+         
+	<tr align="left">
+		<td class="ud">----<span onClick="checkname('9');" id="name9" style="cursor:pointer;">职位搜索</span> <input class="input-text hidden" type="text" id="inputname9"value="职位搜索" onBlur="subname('9');"></td>
+		<td class="ud">click</td>
+         <td>职位搜索</td>
+		<td></td>
+        <td><span onClick="checksort('9');" id="sort9" style="cursor:pointer;">9</span>
+        <input class="input-text hidden" type="text" id="input9" size="10" value="9" onBlur="subsort('9');"></td>
+		<td class="ud">
+          <a href="javascript:editnav('9','职位搜索','2','职位搜索','click','','9');" class="admin_cz_bj">修改</a>
+        <a href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=9');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+	 
+	<tr align="left">
+		<td class="ud">----<span onClick="checkname('10');" id="name10" style="cursor:pointer;">推荐职位</span> <input class="input-text hidden" type="text" id="inputname10"value="推荐职位" onBlur="subname('10');"></td>
+		<td class="ud">click</td>
+         <td>推荐职位</td>
+		<td></td>
+        <td><span onClick="checksort('10');" id="sort10" style="cursor:pointer;">10</span>
+        <input class="input-text hidden" type="text" id="input10" size="10" value="10" onBlur="subsort('10');"></td>
+		<td class="ud">
+          <a href="javascript:editnav('10','推荐职位','2','推荐职位','click','','10');" class="admin_cz_bj">修改</a>
+        <a href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=10');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+	 
+	<tr align="left">
+		<td class="ud">----<span onClick="checkname('11');" id="name11" style="cursor:pointer;">周边职位</span> <input class="input-text hidden" type="text" id="inputname11"value="周边职位" onBlur="subname('11');"></td>
+		<td class="ud">click</td>
+         <td>周边职位</td>
+		<td></td>
+        <td><span onClick="checksort('11');" id="sort11" style="cursor:pointer;">11</span>
+        <input class="input-text hidden" type="text" id="input11" size="10" value="11" onBlur="subsort('11');"></td>
+		<td class="ud">
+          <a href="javascript:editnav('11','周边职位','2','周边职位','click','','11');" class="admin_cz_bj">修改</a>
+        <a href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=11');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+	 
+    	<tr align="left">
+		<td class="ud"><span onClick="checkname('3');" id="name3" style="cursor:pointer;">更多功能</span> <input class="input-text hidden" type="text" id="inputname3"value="更多功能" onBlur="subname('3');"></td>
+		<td class="ud">click</td>
+        <td></td>
+		<td></td>
+        <td><span onClick="checksort('3');" id="sort3" style="cursor:pointer;">3</span>
+        <input class="input-text hidden" type="text" id="input3" size="10" value="3" onBlur="subsort('3');"></td>
+		<td class="ud">
+         <a href="javascript:editnav('3','更多功能','0','','click','','3');" class="admin_cz_bj">修改</a>
+        <A href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=3');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+         
+	<tr align="left">
+		<td class="ud">----<span onClick="checkname('12');" id="name12" style="cursor:pointer;">微招聘</span> <input class="input-text hidden" type="text" id="inputname12"value="微招聘" onBlur="subname('12');"></td>
+		<td class="ud">view</td>
+         <td></td>
+		<td>http://www.toptophr.com/index.php?m=once</td>
+        <td><span onClick="checksort('12');" id="sort12" style="cursor:pointer;">12</span>
+        <input class="input-text hidden" type="text" id="input12" size="10" value="12" onBlur="subsort('12');"></td>
+		<td class="ud">
+          <a href="javascript:editnav('12','微招聘','3','','view','http://www.toptophr.com/index.php?m=once','12');" class="admin_cz_bj">修改</a>
+        <a href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=12');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+	 
+	<tr align="left">
+		<td class="ud">----<span onClick="checkname('13');" id="name13" style="cursor:pointer;">微简历</span> <input class="input-text hidden" type="text" id="inputname13"value="微简历" onBlur="subname('13');"></td>
+		<td class="ud">view</td>
+         <td></td>
+		<td>	http://www.toptophr.com/index.php?m=tiny</td>
+        <td><span onClick="checksort('13');" id="sort13" style="cursor:pointer;">13</span>
+        <input class="input-text hidden" type="text" id="input13" size="10" value="13" onBlur="subsort('13');"></td>
+		<td class="ud">
+          <a href="javascript:editnav('13','微简历','3','','view','	http://www.toptophr.com/index.php?m=tiny','13');" class="admin_cz_bj">修改</a>
+        <a href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=13');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+	 
+	<tr align="left">
+		<td class="ud">----<span onClick="checkname('14');" id="name14" style="cursor:pointer;">职场资讯</span> <input class="input-text hidden" type="text" id="inputname14"value="职场资讯" onBlur="subname('14');"></td>
+		<td class="ud">view</td>
+         <td></td>
+		<td>http://www.toptophr.com/index.php?m=news</td>
+        <td><span onClick="checksort('14');" id="sort14" style="cursor:pointer;">14</span>
+        <input class="input-text hidden" type="text" id="input14" size="10" value="14" onBlur="subsort('14');"></td>
+		<td class="ud">
+          <a href="javascript:editnav('14','职场资讯','3','','view','http://www.toptophr.com/index.php?m=news','14');" class="admin_cz_bj">修改</a>
+        <a href="javascript:void(0)" onClick="layer_del('确定要删除？', 'index.php?m=wx&c=delnav&delid=14');"class="admin_cz_sc">删除</a></td>
+	</tr> 
+	 
+	</tbody>
+</table>
+
+</form>
+</div>
+</div>
+</div>
+<div id="houtai_div" style=" width:298px; border:1px solid #ccc; position:absolute; display:none;">
+    <table class="table_form "style="width:100%">
+		<tbody> 
+        	<tr class="ui_td_11" >
+				<td style="text-align: right;" class="ui_content_wrap">菜单标题：</td>
+                <td><input type="text" name="add_name" value="" class="input-text" /></td>
+			</tr>
+        <tr class="ui_td_11" >
+				<td style="text-align: right;" class="ui_content_wrap">菜单数组：</td>
+                <td>
+                <select name="add_keyid" id="add_keyid" onChange="showbuton();" id="keyid">
+                <option value="0">一级菜单</option>
+                                <option value="1">我的菜单</option>
+                                <option value="2">找工作</option>
+                                <option value="3">更多功能</option>
+                                </select></td>
+		  <tr class="ui_td_11 buttonson" style="display:none">
+				<td style="text-align: right;" class="ui_content_wrap">菜单类型：</td>
+                <td><select name="add_type" id="add_type">
+                <option value="clikc">点击事件</option>
+                <option value="view">链接事件</option>
+                </select></td>
+		  </tr>
+            <tr class="ui_td_11 buttonson"  style="display:none">
+				<td style="text-align: right;" class="ui_content_wrap">菜单关键字：</td>
+                <td><input type="text" name="add_key" class="input-text" /></td>
+			</tr>
+
+            <tr class="ui_td_11 buttonson" style="display:none" >
+				<td style="text-align: right;" class="ui_content_wrap">菜单链接：</td>
+                <td><input type="text" name="add_url" class="input-text" /></td>
+			</tr>
+			<tr class="ui_td_11" >
+				<td style="text-align: right;" class="ui_content_wrap">排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;序：</td>
+                <td><input type="text" name="add_sort" size='5' class="input-text" onKeyUp="this.value=this.value.replace(/[^0-9]/g,'')"/></td>
+			</tr>
+			<tr class="ui_td_11 ">
+				<td  class="ui_content_wrap" colspan='2'>
+                <input type="hidden" name="navid" id="navid" value="">
+                <input class="admin_submit4" type="button" name="add" value=" 确认 " onClick="save_industry()" /></td>
+			</tr> 
+		</tbody>
+	</table>
+</div>   
+
+    </div>
+</div>
+<!-- END PAGE CONTAINER-->    
+
+		
+
+		<!-- END PAGE -->
+
+
+
+	<!-- END CONTAINER -->
+
+	{yun:}include file="$comstyle/footer.htm"{/yun}
+
+

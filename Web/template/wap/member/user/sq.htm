@@ -1,0 +1,41 @@
+{yun:}include file="$wapstyle/member/header.htm"{/yun} 
+<!-- Content area -->
+<div class="body_wap">
+<header>
+   <div class="header_bg"> <a class="hd-lbtn" href="javascript:history.back();"><i class="header_top_l fa fa-chevron-left"></i></a>
+    <div class="header_h1">个人会员中心</div>
+    <label for="tm"><i class="header_top_r fa fa-th "></i></label>
+  </div>
+ </header> 
+<div class="main_member_body">  
+<div class="main_member_cot_box">
+<div class="wap_member_comp_h1 "><span>申请的职位</span></div>
+<div class="wap_member_post_list">
+
+
+{yun:}foreach item=v from=$rows{/yun}
+<div class="wap_member_post_list_b">
+<h3><a href="{yun:}wapurl m=com url=c:view,id:`$v.job_id`{/yun}" class="wap_m_post_user">{yun:}$v.job_name{/yun}</a></h3>
+<aside>{yun:}$v.com_name{/yun}&nbsp;&nbsp;<span class="member_c9">[{yun:}$v.city{/yun}]</span></aside>
+<i >{yun:}$v.datetime|date_format:"%Y-%m-%d"{/yun}</i>
+ 
+<div class="user_Browse">
+{yun:}if $v.is_browse==2{/yun}
+<span class="wap_member_post_list_hr wap_member_post_list_hr_n">对方已浏览简历</span> 
+{yun:}else{/yun}
+<span class="wap_member_post_list_hr wap_member_post_list_hr_n">对方未浏览简历</span> 
+{yun:}/if{/yun}
+<a href="javascript:void(0)" class="wap_member_msg_date" onclick="isdel('index.php?c=sq&del={yun:}$v.id{/yun}')">删除</a>
+</div>
+</div>
+{yun:}foreachelse{/yun}
+<div class="wap_member_no">暂无申请记录</div>
+{yun:}/foreach{/yun}
+
+
+
+</div>
+</div>
+<div class="pages"> {yun:}$pagenav{/yun}</div>
+</div>
+{yun:}include file="$wapstyle/footer.htm"{/yun}

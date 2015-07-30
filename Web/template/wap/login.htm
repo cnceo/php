@@ -1,0 +1,59 @@
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+<!-- Content area -->
+<div class="body_wap">
+<header>
+   <div class="header">
+    <div class="header_bg"> <a class="hd-lbtn" href="javascript:history.back();"><i class="header_top_l fa fa-chevron-left"></i></a>
+       <div class="header_h1">会员登录</div>
+       <label for="tm"><i class="header_top_r fa fa-th "></i></label>
+     </div>
+  </div>
+ </header>
+ <section class="list">
+  <article>
+    <div class="regform" style="padding-top: 20px;">
+     <form action="" method="post" onsubmit="return mlogin();">
+       <input name="usertype" type="hidden" value="{yun:}$smarty.get.usertype{/yun}"/>
+		<input name="wxid" type="hidden" value="{yun:}$smarty.get.wxid{/yun}"/>
+        <dl class="forminputitem">
+          <dd>
+            <div class="c inputitem_w">
+              <input name="username" type="text" id="username" value="" placeholder="输入用户名/邮箱/手机号" class="inputitemtxt">
+            </div>
+          </dd>
+          <dd>
+            <div class="c ico_eye_close inputitem_w">
+              <input name="password" type="password" id="password"  class="inputitemtxt" placeholder="输入密码" >
+              <em class="viewpwd" id="showPwd" onclick="showPwd(this)"></em> </div>
+          </dd>
+          
+          <dd>
+            <input type="submit" name="submit"  value="登录" class="inputSubmit">
+          </dd>
+		  
+		  <dd> <span class="photochk">
+            <input type="checkbox" name="longLogin" id="longLogin" class="inputChk">
+            <em class="blue">自动登录</em> </span> 
+			{yun:}if $smarty.get.usertype==2{/yun}
+			<a href="{yun:}wapurl m=login url=usertype:1{/yun}" class="getpwd">个人用户登陆</a>
+			{yun:}else{/yun}
+			<a href="{yun:}wapurl m=login url=usertype:2{/yun}" class="getpwd">企业用户登陆</a>
+			{yun:}/if{/yun}
+		  </dd>
+		  
+		  
+        </dl>
+      </form>
+    </div>
+  </article>
+  <div class="userloginreg">
+    <p> 没有账号？马上加入企脉通会员 </p>
+{yun:}if $smarty.get.usertype==2{/yun}
+<a href="{yun:}wapurl m=register url=usertype:2{/yun}" class="wap_member_mrecord_list wap_member_mrecord_list_no" style="color:#fff">企业注册</a>
+{yun:}else{/yun}
+<a href="{yun:}wapurl m=register{/yun}" class="wap_member_mrecord_list wap_member_mrecord_list_no" style="color:#fff">立即注册</a>
+{yun:}/if{/yun}   
+  	 
+  </div>
+</section>
+{yun:}include file="$wapstyle/footer.htm"{/yun}

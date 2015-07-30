@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<title>{yun:}$com.name{/yun}</title>
+	
+		
+		
+
+
+	</head>
+	<body >
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+
+    <!--中开始-->
+
+
+<div id="wrapper" class="temp-wrapper" style="background:#000"><div id="scroller" class="temp-scroller"><div class="pro-msg-div"><table class="pro-msg-single-div">
+    <tbody>
+    <tr>
+        <td class="pro-msg-bg pro-msg-top1"></td>
+        <td class="pro-msg-bg pro-msg-top2"></td>
+        <td class="pro-msg-bg pro-msg-top3"></td>
+    </tr>
+    <tr>
+        <td class="pro-msg-bg pro-msg-left"></td>
+        <td class="pro-msg-bg pro-msg-center">     
+        <br />
+        <div class="pro-msg-text2" style="padding-left:10px;color:#fff">企业环境</div>
+      
+
+
+<div class="news_cont_ms" style="color:#FFFFFF;padding-left:10px;width:350px">
+
+      <!--分享到朋友圈代码 -->
+  <link rel="stylesheet" href="{yun:}$com_style{/yun}SELF_PUBLIC/content.css" />
+
+
+<div id="mcover" onClick="document.getElementById('mcover').style.display='';" style="display:none;">
+                    <img src="{yun:}$com_style{/yun}/SELF_PUBLIC/Img/guide.png" />
+                </div>
+
+   <div class="text" id="content">
+                    <div id="mess_share">
+                        <div id="share_1">
+                            <button class="button2" onClick="document.getElementById('mcover').style.display='block';">
+                                <img src="{yun:}$com_style{/yun}/SELF_PUBLIC/Img/icon_msg.png" width="64" height="64" />
+                                &nbsp;发送给朋友
+                            </button>
+                        </div>
+                        <div id="share_2">
+                            <button class="button2" onClick="document.getElementById('mcover').style.display='block';">
+                                <img src="{yun:}$com_style{/yun}/SELF_PUBLIC/Img/icon_timeline.png" width="64" height="64" />
+                                &nbsp;分享到朋友圈
+                            </button>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+
+  <!--分享到朋友圈代码结束-->
+</div>
+<br>
+
+
+
+<link href="http://www.lanrenmb.com/wap/364/css/163css.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="http://www.lanrenmb.com/wap/364/js/zepto_min.js"></script>
+
+<script type="text/javascript" src="http://www.lanrenmb.com/wap/364/js/touchslider.js"></script>
+
+
+
+<div class="box-163css" id="box">
+
+
+    <div id="slider" class="swipe">
+
+      <ul class="piclist">
+{yun:}showpage limit=20{/yun}
+{yun:}section name=show loop=$showpage{/yun}
+        <li><p>{yun:}$showpage[show].title{/yun}</p><img src="{yun:}$config.sy_weburl{/yun}/{yun:}$showpage[show].picurl{/yun}" height="100%"  width="100%"></li>
+{yun:}/section{/yun}
+      </ul>
+
+    </div>
+
+
+
+
+
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+
+	var num=$('#slider').find('li').size();
+
+	$('.bcount').text(num);	
+
+	$('.b_btn').click(function(){
+
+		$(this).toggleClass('b_btn_active');
+
+		$('.intro').toggle();
+
+	})
+
+})
+
+var tt=new TouchSlider({id:'slider','auto':'-1',fx:'ease-out',direction:'left',speed:600,timeout:5000,'before':function(index){
+
+	var es=document.getElementById('slider').getElementsByTagName('li');
+
+	var it=$(es[index]).index()+1;	
+
+	$('.bi').text(it);	
+
+	var tx=$(es[index]).find('p').text();	
+
+	$('.title').text(tx);
+
+}});
+
+</script>
+
+
+	
+		
+		</td>
+        <td class="pro-msg-bg pro-msg-right"></td>
+    </tr>
+    <tr>
+        <td class="pro-msg-bg pro-msg-bottom1"></td>
+        <td class="pro-msg-bg pro-msg-bottom2"></td>
+        <td class="pro-msg-bg pro-msg-bottom3"></td>
+    </tr>
+    </tbody>
+</table>
+
+</div></div></div>
+
+
+
+
+
+
+<SCRIPT>
+   $("#title").html("企业环境"); 
+</SCRIPT>
+
+ 
+    <!--中结束-->
+
+	{yun:}include file="$comstyle/footer.htm"{/yun}
+</html>
+

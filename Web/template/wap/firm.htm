@@ -1,0 +1,60 @@
+{yun:}include file="$wapstyle/header.htm"{/yun}
+<!-- Content area -->
+<div class="body_wap">
+<header>
+   <div class="header">
+    <div class="header_bg"> <a class="hd-lbtn" href="javascript:history.back();"><i class="header_top_l fa fa-chevron-left"></i></a>
+       <div class="header_h1">公司搜索</div>
+       <label for="tm"><i class="header_top_r fa fa-th "></i></label>
+     </div>
+  </div>
+ </header>
+<script src="http://www.hr135.com/app/template/wap/js/search.js" language="javascript"></script>
+<div class="warp_content clear">
+  <section>
+    <form action="index.php" method="get">
+      <input type="hidden" name="m" value="firm" />
+      <div class="formFiled">
+        <input type="text" value="{yun:}$smarty.get.keyword{/yun}" name="keyword" class="input_search" placeholder="请输入关键字/职位/地点搜索">
+        <input type="submit" value="搜索" class="input_btn">
+		
+		<input type="hidden" name="provinceid" id="provinceid" value="" />
+        <input type="hidden" name="cityid" id="cityid" value="" />
+        <input type="hidden" name="three_cityid" id="three_cityid" value="" />        
+        <input type="hidden" name="citylevel" id="citylevel" value="2" />
+		
+		
+      </div>
+    </form>
+  </section>
+
+  <section>
+    <div class="job_list_content">       
+	     {yun:}comlist ispage=1 firm=1 firmpic=1 ismsg=1 hy=auto.hy pr=auto.pr mun=auto.mun provinceid=auto.provinceid cityid=auto.cityid three_cityid=auto.three_cityid keyword=auto.keyword limit=20 islt=4 item=list{/yun}
+	    <div class="job_list_box"> 
+		<a href="{yun:}wapurl url=m:firm,c:show,id:`$list.uid`{/yun}" class="job_list">
+        <h3>{yun:}$list.name|mb_substr:0:12:'gbk'{/yun} </h3>
+        <aside class="firm_qy_job">{yun:}$list.job_city_one{/yun}-{yun:}$list.job_city_two{/yun}</i></aside>
+        <!--<aside class="firm_num">共 <font color="#FF6600">1</font> 个职位江苏-常州</aside>-->
+        </a> 
+		</div>
+		{yun:}/comlist{/yun} 
+  {yun:}if $total<=0{/yun}
+  {yun:}if $smarty.get.keyword!="" {/yun} 
+  <div class="wap_member_no">没有搜索到企业</div>
+  {yun:}else{/yun}
+  <div class="wap_member_no">暂无企业</div>
+  {yun:}/if{/yun}
+  {yun:}else{/yun}
+  <div class="pages"> {yun:}$pagenav{/yun}</div>
+  {yun:}/if{/yun}  
+			
+			
+       </div>
+  </section>
+  
+
+
+    <div> </div>
+</div>
+{yun:}include file="$wapstyle/footer.htm"{/yun}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gbk">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="{yun:}$com_style{/yun}images/apple-touch-icon.png" />
+    <link rel="apple-touch-startup-image" href="{yun:}$com_style{/yun}images/apple-touch-startup-image-320x460.png" />
+    <title>{yun:}$com.name{/yun}</title>
+    <link rel="stylesheet" href="{yun:}$com_style{/yun}css/framework7.css">
+    <link rel="stylesheet" href="{yun:}$com_style{/yun}style.css">
+    <link type="text/css" rel="stylesheet" href="{yun:}$com_style{/yun}css/swipebox.css" />
+    <link href='http://fonts.useso.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet'      type='text/css'>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"></head>
+<body id="mobile_wrap">
+{yun:}include file="$comstyle/header.htm"{/yun}
+
+  <div id="pages_maincontent">
+      
+          <h2 class="page_subtitle">文章阅读</h2>
+          
+              <div class="page_single">
+              <blockquote>{yun:}$row.title{/yun}</blockquote>
+              
+              <div class="clear"></div> 
+              <ul class="simple_list">
+              <li>时间： {yun:}totime time=$newspage[i].ctime{/yun}</li>
+              </ul>
+              <p>{yun:}$row.body{/yun}</p>
+              <a href="{yun:}curl url=id:$id,tp:news,style:app{/yun}" class="button_full">返回</a>
+              </div>
+      
+      </div>
+      
+      
+    </div>
+  </div>
+</div>
+
+	
+	{yun:}include file="$comstyle/footer.htm"{/yun}
+
+</body>
+</html>

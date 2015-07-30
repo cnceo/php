@@ -1,0 +1,43 @@
+/* 产品显示 */
+.pro-msg-div 	{ width:96%;overflow:hidden;padding-top:6px;padding-right:5px; padding-bottom:20px; 
+		  text-align:center; margin-left:auto;margin-right:auto; }
+.pro-msg-single-div  { width:100%; }  
+.pro-msg-bg      { background:url(../images/pro-msg-bg.png)  } 
+
+.pro-msg-top1   {  width:11px; height:11px;  } 
+.pro-msg-top2   {              height:11px;  background-position: 51% top; background-size: 200% 200px; }
+.pro-msg-top3   {  width:11px; height:11px;  background-position: -89px 0px;  }
+
+.pro-msg-left   {  background-position: 0px 11%; background-size: 100px 260%; }      
+.pro-msg-center {  background-position: 51% 11%; background-size: 200% 260%;   padding:0px; }           
+.pro-msg-right  {  background-position: -89px 11%; background-size: 100px 260%; }  
+.pro-msg-bottom1 {  background-position: 0px -89px; width:11px; height:11px; }
+.pro-msg-bottom2 {  background-position: 51% -89px;; background-size: 200% 200px; }
+.pro-msg-bottom3 {  background-position: -89px -89px; width:11px; height:11px;}
+
+.pro-msg-img-box { TEXT-ALIGN: center; WIDTH: 100%; }     
+.pro-msg-img   { width:95%; height:auto; padding-left: 7px;  }       
+.pro-msg-text1 { color:#555; font-size:16px; font-weight:500; LINE-HEIGHT: 25px; margin:2px;  }       
+.pro-msg-text2 { color:#555; font-size:16px; font-weight:500; LINE-HEIGHT: 26px;  margin-bottom: 10px; 
+		 border:1px solid #DEDEDE ; background-color:#EFEFEF; padding:7px; }    		 
+.pro-msg-text3,.pro-msg-text3 p,.pro-msg-text3 div 
+		{ color:#666; font-size:12pt;font-weight:450; LINE-HEIGHT: 23px;  margin-bottom: 10px;   }  
+
+.pro-msg-prc1    { color: red;font-size: 120%; margin-left:8px;  font-weight:600;  }     
+
+       
+.pro-msg-icn1  {}               
+.pro-msg-icn2  {}
+
+.pro-msg-push    { WIDTH: 45%; height:38px; line-height:38px;  display:inline-block; float:left; 
+	           vertical-align:middle;  TEXT-ALIGN: center;  
+  	           BORDER: #cccccc 1px solid; BACKGROUND-COLOR: red; 
+   	           color:#fff; font-size:18px; font-weight:650; 
+                   border-radius: inherit; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); background-clip: padding-box; border-radius: 8px 8px 8px 8px; } 
+ 
+.pro-msg-push-st { BACKGROUND-COLOR: #EFEFEF; color:#555;  }
+.pro-msg-push-ly { BACKGROUND-COLOR: #0000FF; }
+.pro-msg-push-bm { BACKGROUND-COLOR: red; }
+
+
+/* end产品显示 */

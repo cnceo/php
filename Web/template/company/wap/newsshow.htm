@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<title>{yun:}$com.name{/yun}</title>
+        <link rel="stylesheet" type="text/css" href="{yun:}$com_style{/yun}style_wap/css/pro-msg.css" />
+		<link rel="stylesheet" type="text/css" href="{yun:}$com_style{/yun}css/wap.css"/>
+		
+
+		
+
+
+	</head>
+	<body>
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+
+    <!--中开始-->
+
+
+<div id="wrapper" class="temp-wrapper"><div id="scroller" class="temp-scroller"><div class="pro-msg-div"><table class="pro-msg-single-div">
+    <tbody>
+    <tr>
+        <td class="pro-msg-bg pro-msg-top1"></td>
+        <td class="pro-msg-bg pro-msg-top2"></td>
+        <td class="pro-msg-bg pro-msg-top3"></td>
+    </tr>
+    <tr>
+        <td class="pro-msg-bg pro-msg-left"></td>
+        <td class="pro-msg-bg pro-msg-center" style="padding:0px">     
+        <br />
+        <div class="pro-msg-text2">文章内容</div>
+      
+
+
+<div class="news_cont_ms">{yun:}$row.title{/yun}</div>
+<div class="wap_news_cont" style="padding:0px;margin:10px 0">
+  <div class="wap_txt link_lan" style="text-align:left;font-size:12px">{yun:}$row.body{/yun}</div>
+</div>
+	
+				      <!--分享到朋友圈代码 -->
+  <link rel="stylesheet" href="{yun:}$com_style{/yun}SELF_PUBLIC/content.css" />
+
+
+<div id="mcover" onClick="document.getElementById('mcover').style.display='';" style="display:none;">
+                    <img src="{yun:}$com_style{/yun}/SELF_PUBLIC/Img/guide.png" />
+                </div>
+
+   <div class="text" id="content">
+                    <div id="mess_share">
+                        <div id="share_1">
+                            <button class="button2" onClick="document.getElementById('mcover').style.display='block';">
+                                <img src="{yun:}$com_style{/yun}/SELF_PUBLIC/Img/icon_msg.png" width="64" height="64" />
+                                &nbsp;发送给朋友
+                            </button>
+                        </div>
+                        <div id="share_2">
+                            <button class="button2" onClick="document.getElementById('mcover').style.display='block';">
+                                <img src="{yun:}$com_style{/yun}/SELF_PUBLIC/Img/icon_timeline.png" width="64" height="64" />
+                                &nbsp;分享到朋友圈
+                            </button>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+
+  <!--分享到朋友圈代码结束--> 
+		</td>
+        <td class="pro-msg-bg pro-msg-right"></td>
+    </tr>
+    <tr>
+        <td class="pro-msg-bg pro-msg-bottom1"></td>
+        <td class="pro-msg-bg pro-msg-bottom2"></td>
+        <td class="pro-msg-bg pro-msg-bottom3"></td>
+    </tr>
+    </tbody>
+</table>
+
+</div></div></div>
+
+
+
+
+
+
+<SCRIPT>
+   $("#title").html("公司动态"); 
+</SCRIPT>
+
+ 
+    <!--中结束-->
+
+	{yun:}include file="$comstyle/footer.htm"{/yun}
+</html>
+

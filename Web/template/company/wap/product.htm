@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta content="text/html; charset=utf-8">
+		<meta charset="utf-8">
+		<title>{yun:}$com.name{/yun}</title>
+        <link rel="stylesheet" type="text/css" href="{yun:}$com_style{/yun}style_wap/css/pro-msg.css" />
+		<link rel="stylesheet" type="text/css" href="{yun:}$com_style{/yun}css/wap.css"/>
+		
+
+		
+
+
+	</head>
+	<body>
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+
+    <!--中开始-->
+
+
+<div id="wrapper" class="temp-wrapper"><div id="scroller" class="temp-scroller"><div class="pro-msg-div"><table class="pro-msg-single-div">
+    <tbody>
+    <tr>
+        <td class="pro-msg-bg pro-msg-top1"></td>
+        <td class="pro-msg-bg pro-msg-top2"></td>
+        <td class="pro-msg-bg pro-msg-top3"></td>
+    </tr>
+    <tr>
+        <td class="pro-msg-bg pro-msg-left"></td>
+        <td class="pro-msg-bg pro-msg-center">     
+        <br />
+        <div class="pro-msg-text2">产品展示</div>
+      
+
+{yun:}productpage limit=5{/yun}
+{yun:}if !empty($productpage){/yun}
+<section>
+<div class="main">
+ {yun:}section name=i loop=$productpage{/yun}
+   
+<a href="{yun:}curl url=id:$id,tp:productshow,pid:`$productpage[i].id`,style:wap{/yun}"  class="index_post_list_b" style="width:300px;overflow:hidden">
+<h3 style="width:100px;overflow:hidden;height:80px;"><img src="{yun:}$config.sy_weburl{/yun}/{yun:}$productpage[i].pic{/yun}" alt="" width="100"  height="80"/></h3>
+<i style="width:150px;height:80px">{yun:}$productpage[i].title{/yun}<br>{yun:}totime time=$productpage[i].ctime{/yun}</i>
+</a> 
+{yun:}/section{/yun}
+</div>
+</section>
+<div class="pages">{yun:}$pagenav{/yun}</div>
+{yun:}else{/yun}
+        <div class="comapply_no_msg"> <div class="comapply_no_msg_cont"><span></span><em>公司还没有上传产品展示!</em></div></div>
+{yun:}/if{/yun}
+
+
+<!--分享到朋友圈代码 -->
+  <link rel="stylesheet" href="{yun:}$com_style{/yun}SELF_PUBLIC/content.css" />
+
+
+<div id="mcover" onClick="document.getElementById('mcover').style.display='';" style="display:none;">
+                    <img src="{yun:}$com_style{/yun}/SELF_PUBLIC/Img/guide.png" />
+                </div>
+
+   <div class="text" id="content">
+                    <div id="mess_share">
+                        <div id="share_1">
+                            <button class="button2" onClick="document.getElementById('mcover').style.display='block';">
+                                <img src="{yun:}$com_style{/yun}/SELF_PUBLIC/Img/icon_msg.png" width="64" height="64" />
+                                &nbsp;发送给朋友
+                            </button>
+                        </div>
+                        <div id="share_2">
+                            <button class="button2" onClick="document.getElementById('mcover').style.display='block';">
+                                <img src="{yun:}$com_style{/yun}/SELF_PUBLIC/Img/icon_timeline.png" width="64" height="64" />
+                                &nbsp;分享到朋友圈
+                            </button>
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </div>
+
+  <!--分享到朋友圈代码结束--> 
+		
+		</td>
+        <td class="pro-msg-bg pro-msg-right"></td>
+    </tr>
+    <tr>
+        <td class="pro-msg-bg pro-msg-bottom1"></td>
+        <td class="pro-msg-bg pro-msg-bottom2"></td>
+        <td class="pro-msg-bg pro-msg-bottom3"></td>
+    </tr>
+    </tbody>
+</table>
+
+</div></div></div>
+
+
+
+
+
+
+<SCRIPT>
+   $("#title").html("公司动态"); 
+</SCRIPT>
+
+ 
+    <!--中结束-->
+
+	{yun:}include file="$comstyle/footer.htm"{/yun}
+</html>
+

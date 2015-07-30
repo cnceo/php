@@ -1,0 +1,52 @@
+{yun:}include file="$wapstyle/header.htm"{/yun}
+
+
+
+
+<!-- Content area -->
+<div class="body_wap">
+<header>
+   <div class="header">
+    <div class="header_bg"> <a class="hd-lbtn" href="javascript:history.back();"><i class="header_top_l fa fa-chevron-left"></i></a>
+       <div class="header_h1">职位搜索</div>
+       <label for="tm"><i class="header_top_r fa fa-th "></i></label>
+     </div>
+  </div>
+ </header>
+ <script src="http://www.hr135.com/app/template/wap/js/search.js" language="javascript"></script>
+
+<section>
+  <div class="warp_content clear">
+    <form method="get" action="index.php">
+   <input type="hidden" name="m" value="com" />
+      <div class="formFiled">
+        <input type="text" value="" name="keyword" class="input_search" placeholder="请输入关键字">
+        <input type="submit" value="搜索" class="input_btn">
+      </div>
+    </form>
+    <div class="job_list_content">       
+	
+	  {yun:}joblist namelen=8 comlen=8 ispage=1 hy=auto.hy job1=auto.job1 job1_son=auto.job1_son job_post=auto.job_post pr=auto.pr mun=auto.mun provinceid=auto.provinceid cityid=auto.cityid three_cityid=auto.three_cityid type=auto.type edu=auto.edu exp=auto.exp sex=auto.sex salary=auto.salary keyword=auto.keyword urgent=auto.urgent job=auto.job order=xuanshang limit=25 islt=4 item=job_list{/yun}
+	    <div class="job_list_box"> 
+	    <a href="{yun:}wapurl url=m:com,c:view,id:`$job_list.id`{/yun}" class="job_list">
+        <h3><font color='red'>{yun:}$job_list.name_n{/yun}</font></h3>
+        <aside class="job_qy_name">{yun:}$job_list.job_city_one{/yun}-{yun:}$job_list.job_city_two{/yun}<em class="line">|</em>{yun:}$job_list.com_name|mb_substr:0:12:'gbk'{/yun}</aside>
+        <aside class="job_pay"><strong></strong><span class="job_date">{yun:}$job_list.time{/yun}</span></aside>
+        </a> 
+		</div>
+        {yun:}/joblist{/yun}   
+      {yun:}if $total<=0{/yun}
+  {yun:}if $smarty.get.keyword!="" {/yun} 
+  <div class="wap_member_no">没有搜索到职位</div>
+  {yun:}else{/yun}
+  <div class="wap_member_no">暂无职位</div>
+  {yun:}/if{/yun}
+  {yun:}else{/yun}
+  <div class="pages"> {yun:}$pagenav{/yun}</div>
+  {yun:}/if{/yun}
+       </div>
+  </div>
+  </div>
+</section>
+
+{yun:}include file="$wapstyle/footer.htm"{/yun}

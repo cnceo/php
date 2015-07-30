@@ -1,0 +1,13 @@
+/* 色系适配标准样式 */
+.temp-title-color         { color: #fff;  }		 /* title 文字 */
+.home-name-text-color     { COLOR: #444; }	         /* 公司名称  */
+.footer-text-color        { color: #fffeff;  }		 /* 底栏色  */
+.home-menu-text-color     { COLOR: #fff;  } 		 /* 内容栏目菜单文字  */
+.home-menu-text-2-color   { COLOR: #F9FCF1;  } 		 /* 副标题文字  */
+.pro-list-text1-color     { COLOR: #bb6d95;  } 		 /* 商品列表  */
+
+    .home-menu-title-color1{ color: #59564F; }	         /* 导航中文  */
+    .home-menu-title-color2{ color: #FDB53C; }	         /* 导航英文  */
+
+    .home-bg-color         { background: #FFF8E8; }       /* 首页背景 可空  */
+    .home-menu-bg-color    { background: #FA9D00; } 	  /* 栏目背景   */

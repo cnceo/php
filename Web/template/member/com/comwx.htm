@@ -1,0 +1,89 @@
+{yun:}include file="$comstyle/header.htm"{/yun}
+<script src="{yun:}$config.sy_weburl{/yun}/js/comwx.js"></script>
+<script>var weburl="{yun:}$config.sy_weburl{/yun}";</script>
+<div class="page-container"> {yun:}include file="$comstyle/left.htm"{/yun}
+    <div class="page-content">
+    <div class='right_box'>
+      <div class=admincont_box>
+        <div class=admin_tit><span class="admin_tit_bg">企业公众平台绑定申请</span> </div>
+        <div class=admin_tit_right>
+      <div class="job_re_ts"> 绑定企业微信公众号，生成专属于您的企业手机招聘平台，方便求职者手机应聘公司职位，并从手机了解更多企业信息。 </div>
+         
+          <div class="Binding_list">
+           
+          
+          <div class="Binding_list" style="border:none">
+            <div class="Binding_list_left">微信公众平台</div>
+            {yun:}if $company.yyzz_status==1{/yun}
+            <div class="Binding_list_text" style="width:300px;">已开通微招聘官网</div>
+            <div class="Binding_oper">
+            	<!--<a  href="javascript:getyyzz('重新申请微招聘官网');" class="Binding_submit_rz">重新申请</a>-->
+            	<a  href="https://mp.weixin.qq.com/" target="_blank" class="Binding_submit_rz">登陆</a>
+            	<a  href="../company/index.php?id=1&app=wap" class="Binding_submit_qx" target="_blank">已开通</a>
+          	</div>
+            {yun:}else{/yun}
+                {yun:}if !empty($cert){/yun}
+                    {yun:}if $cert.status==2{/yun}
+                    <div class="Binding_list_text">未开通 原因：{yun:}$cert.statusbody{/yun}</div>
+                    <div class="Binding_oper"><a  href="javascript:getyyzz('提交微招聘官网申请');" class="Binding_submit_rz">重新申请</a></div>
+                    {yun:}else{/yun}
+                    <div class="Binding_list_text" style="width:300px;">您的资料已成功提交，请等待管理员审核</div>
+                    <div class="Binding_oper"><a  href="javascript:getyyzz('提交微招聘官网申请');" class="Binding_submit_rz">重新申请</a></div>
+                    {yun:}/if{/yun}
+                {yun:}else{/yun}
+                <div class="Binding_list_text" style="width:300px;">当前尚未申请微信公众平台的绑定</div>
+                <div class="Binding_oper"><a  href="javascript:getyyzz('提交微招聘官网申请');" class="Binding_submit_rz">未开通</a></div>
+                {yun:}/if{/yun}
+            {yun:}/if{/yun}
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--微信公众号绑定弹出框-->
+<div id="yyzz" style=" display:none;">
+<div class="Binding_pop_box" style="padding:10px;width:480px;height:400px; background:#fff;">
+<div class="Binding_pop_box_msg">请输入您的微信公众平台的登陆帐号和密码</div>
+<div>
+<iframe id="supportiframe"  name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+<form name="MyForm" target="supportiframe" method="post" action="index.php?c=comwx&act=save" enctype="multipart/form-data" onsubmit="return check_company_cert();">
+<div class="Binding_pop_box_list"><span class="Binding_pop_box_list_left"><i class="Binding_pop_box_list_left_i">*</i>登陆帐号：</span>
+<input type="text" value="{yun:}$cert.wxname{/yun}" name="wxname" id="wxname" class="Binding_pop_box_list_text Binding_pop_box_list_textw200" /></div>
+<div class="Binding_pop_box_list"><span class="Binding_pop_box_list_left"><i class="Binding_pop_box_list_left_i">*</i>登陆密码：</span>
+<input type="text" value="{yun:}$cert.wxpassword{/yun}" name="wxpassword" id="wxpassword" class="Binding_pop_box_list_text Binding_pop_box_list_textw200" /></div>
+
+
+<div class="Binding_pop_box_list"><span class="Binding_pop_box_list_left"><i class="Binding_pop_box_list_left_i">*</i>AppID(应用ID)：</span>
+<input type="text" value="{yun:}$cert.APPID{/yun}" name="APPID" id="APPID" class="Binding_pop_box_list_text Binding_pop_box_list_textw200" /></div>
+
+
+<div class="Binding_pop_box_list"><span class="Binding_pop_box_list_left"><i class="Binding_pop_box_list_left_i">*</i>AppSecret(应用密钥)：</span>
+<input type="text" value="{yun:}$cert.APPSECRET{/yun}" name="APPSECRET" id="APPSECRET" class="Binding_pop_box_list_text Binding_pop_box_list_textw200" /></div>
+
+
+<div class="Binding_pop_sub" style="margin-top:20px;">
+<span class="Binding_pop_box_list_left">&nbsp;</span>
+
+<input class="com_pop_bth_qd" name="comwx" type="submit" value="保存">
+<input class="com_pop_bth_qx" type="button" value="取消" onclick="layer.closeAll();">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div id="pic" style=" display:none;">
+<div class="Binding_pop_box" style="padding:10px;width:480px;height:200px; background:#fff;">
+<img src="" id="picshow" width="480" height="200"/>
+</div>
+</div>
+<!--弹出框 end-->
+<input type="hidden" id="moblieval" value="{yun:}$company.linktel{/yun}" />
+<input type="hidden" id="emailval" value="{yun:}$company.linkmail{/yun}" />
+<input type="hidden" id="send" value="0" />
+{yun:}include file="$comstyle/footer.htm"{/yun}

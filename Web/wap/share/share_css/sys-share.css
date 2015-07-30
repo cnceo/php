@@ -1,0 +1,22 @@
+/* ∑÷œÌ */
+.share-div      { background: url(http://img.quickapp.cn/5/1100009505/sys/sys-share.png); 
+                  width: 38px; height: 38px; margin-top: 10px; margin-botom: 10px; margin-left: auto; margin-right: auto; text-align: center; }
+.share-table    { WIDTH: 97%; MARGIN-TOP: 18px; TEXT-ALIGN: center;  MARGIN-LEFT: auto; MARGIN-RIGHT: auto; }
+.share-table td { border:1px solid #DCDCDC; width:33.33333333%  }
+.share-table-td { border:1px solid #DCDCDC; width:33.33333333% } 
+
+.share-title td { text-align:left; color:#1D9FE1; font-size:14px; font-weight:550; padding-left:10px;}
+.share-title    { border:1px solid #DCDCDC; background-color: #E7E7E7; height:30px;
+                  text-align:center;vertical-align:middle; line-height:30px;} 
+.share-txt      { line-height:25px; color:#555; font-size:12px; font-weight:450; 
+                  text-align:center; vertical-align:middle; margin-left:auto; margin-right:auto; } 
+
+.share-code-td  { width: 33.33333333%;}
+.share-code-div { width: 80px; height: 80px; margin-top: 10px; margin-botom: 10px; margin-left: auto; margin-right: auto; text-align: center;}
+.share-code-img { width: 80px; height: 80px; border: 0; margin-left: 3px; }
+.share-code-img-big { width: 150px; height: auto; border: 0; margin: 10px; }
+.share-code-txt { line-height: 25px; color: red; font-size: 13px; font-weight: 550; 
+                  text-align: center; vertical-align: middle; margin-left: auto; margin-right: auto; }
+
+.share_content  { display:none; }
+/* end∑÷œÌ */

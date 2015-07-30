@@ -1,0 +1,67 @@
+{yun:}include file="$wapstyle/member/header.htm"{/yun} 
+<!-- Content area -->
+<div class="body_wap">
+<header>
+   <div class="header_bg"> <a class="hd-lbtn" href="javascript:history.back();"><i class="header_top_l fa fa-chevron-left"></i></a>
+    <div class="header_h1">个人会员中心</div>
+    <label for="tm"><i class="header_top_r fa fa-th "></i></label>
+  </div>
+ </header> 
+<div class="main_member_body">  
+ <div class="wap_member_comp_h1"><span>我的简历</span></div>
+<script>
+function checkdef(eid){
+	$.post("index.php?c=resume",{type:"def_job",eid:eid},function(data){ 
+	})
+}
+</script>
+<div class="rsm_box" style="padding:0px 10px 10px ;">
+{yun:}foreach item=resume from=$rows{/yun}
+<div class="rsm_list">
+<div class="rsm_top">
+<a href="http://www.hr135.com/wap/index.php?c=resume&a=show&id=2024">
+<div class="rsm_name">王工的简历</div>
+<div class=""><span class="rsm_name_s">刷新：</span>{yun:}$resume.lastupdate|date_format:'%Y-%m-%d'{/yun}
+
+</div>
+</a>
+</div>
+<div class="rsm_cz">
+<dl onclick="index.php?c=resume&update={yun:}$resume.id{/yun}">
+<dt><i class="rsg_cion fa fa-refresh"></i></dt>
+<dd>刷新</dd> 
+</dl>
+<dl>
+
+<a href="index.php?c=addresume&eid={yun:}$resume.id{/yun}" class="wap_member_msg_jl_sc"><dt><i class="rsg_cion fa fa-pencil-square-o"></i></dt>
+<dd>修改</dd></a>
+</dl>
+
+<dl>
+<dt><i class="rsg_cion rsg_cion_mr fa fa-check-square-o"></i></dt>
+<dd><input type="radio" name="def" value="{yun:}$resume.id{/yun}" onclick="checkdef('{yun:}$resume.id{/yun}');" {yun:}if $def_job.def_job==$resume.id{/yun} checked{yun:}/if{/yun} id='checkdef'/>默认简历</dd>
+</dl>
+<!--<dl>
+<dt><i class="rsg_cion fa fa-eye rsg_cion_mr"></i></dt>
+<dd>公开</dd>
+<div class="rfop"> 
+    <select>
+		<option onclick="layer_del('','index.php?c=resumeset&open=2024&type=1');">公开</option>
+        <option onclick="layer_del('','index.php?c=resumeset&open=2024');">隐藏</option>
+    </select> 
+</div>
+</dl>-->
+<dl onclick="javascript:isdel('index.php?c=resume&del={yun:}$resume.id{/yun};">
+<dt><i class="rsg_cion fa fa-trash-o"></i></dt>
+<dd>删除</dd>
+</dl>
+</div>
+</div>
+ {yun:}/foreach{/yun}
+ <div class="pages"> {yun:}$pagenav{/yun}</div>
+ 
+<div class="mt10"><a href="index.php?c=addresume" class="rsm_cj">创建简历</a></div>
+</div>
+</div>
+
+{yun:}include file="$wapstyle/footer.htm"{/yun}

@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<xml>
+<w:WordDocument>
+<w:View>
+Print
+</w:View>
+</xml>
+<title>简历</title>
+</head><body style="background:#dfdfdf; margin:0 auto">
+<style>
+table{border-collapse:collapse;line-height:20px; background:#ffffff; margin:0 auto}
+table td{ white-space:normal;word-break:break-all}
+table tr{ background:#ffffff}
+</style>
+<table width="560" border="0"   cellpadding="5" cellspacing="0" bgcolor="#fff" style="font-size:12px;">
+  <tbody>
+    <tr>
+      <td colspan="8" align="center"bgcolor="#EAF3FC"><font size="5" color="#f60">王工</font> <font size="4" color="#666666">个人简历 (简历编号：NO.1)</font></td>
+    </tr>
+    <tr>
+      <td colspan="8" align="center"  bgcolor="#EAF3FC"><b>个人基本信息</b></td>
+    </tr>
+    <tr>
+      <td width="71"  bgcolor="#EAF3FC">姓名</td>
+      <td width="98" bgcolor="#ffffff">王工</td>
+      <td width="75"  bgcolor="#EAF3FC">性别</td>
+      <td colspan="2" bgcolor="#ffffff">男</td>
+      <td width="90"  bgcolor="#EAF3FC">出生日期</td>
+      <td width="130" colspan="2" bgcolor="#ffffff">1988年08月08日</td>
+    </tr>
+    <tr>
+       <td  bgcolor="#EAF3FC">身份证号</td>
+    <td colspan="4" bgcolor="#ffffff"></td>
+      
+    <td  bgcolor="#EAF3FC">籍贯</td>
+    <td  colspan="2" bgcolor="#ffffff"></td>
+    </tr> 
+  <tr>
+    <td  bgcolor="#EAF3FC">身高</td>
+    <td bgcolor="#ffffff">cm</td>
+    <td  bgcolor="#EAF3FC">体重</td>
+    <td colspan="2" bgcolor="#ffffff">kg</td>
+    <td  bgcolor="#EAF3FC">民族</td>
+    <td  colspan="2" bgcolor="#ffffff"></td>
+   
+  </tr> 
+  <tr>
+    <td   bgcolor="#EAF3FC">婚姻状况</td>
+    <td colspan="7" bgcolor="#ffffff"></td>
+  </tr>
+    <tr>
+    <td  bgcolor="#EAF3FC">学历</td>
+    <td  bgcolor="#ffffff">大专</td>
+    <td  bgcolor="#EAF3FC">工作经验</td>
+    <td bgcolor="#ffffff" colspan="5">10年以上</td>
+   
+  </tr>
+  <tr>
+    <td   bgcolor="#EAF3FC">详细地址</td>
+    <td colspan="7" bgcolor="#ffffff"></td>
+  </tr>
+    <tr>
+    <td   bgcolor="#EAF3FC">现所在地</td>
+    <td colspan="7" bgcolor="#ffffff">东莞市东城区文华路文华花园</td>
+  </tr>
+  <tr>
+    <td   bgcolor="#EAF3FC">个人主页</td>
+    <td colspan="7" bgcolor="#ffffff"></td>
+  </tr>
+    <tr>
+    <td   bgcolor="#EAF3FC">自我评价</td>
+    <td colspan="7" bgcolor="#ffffff">老实</td>
+  </tr>
+  <tr>
+    <td colspan="8" align="center" bgcolor="#EAF3FC"><b> 求职意向</b></td>
+  </tr>
+  <tr>
+    <td bgcolor="#EAF3FC">期望行业</td>
+    <td colspan="4" bgcolor="#ffffff">计算机/互联网</td>
+    <td bgcolor="#EAF3FC">工作地区</td>
+    <td colspan="2"  bgcolor="#ffffff">广东 东莞 南城区</td>
+  </tr>
+  <tr>
+    <td bgcolor="#EAF3FC">职位性质</td>
+    <td colspan="4" bgcolor="#ffffff">全职</td>
+    <td bgcolor="#EAF3FC">待遇要求</td>
+    <td colspan="2"  bgcolor="#ffffff"> 面议 </td>
+  </tr>
+  <tr>
+    <td bgcolor="#EAF3FC">期望职位</td>
+    <td colspan="4" bgcolor="#ffffff">标准化工程师</td>
+    <td bgcolor="#EAF3FC">到岗时间</td>
+    <td colspan="2" bgcolor="#ffffff">随时到岗</td>
+  </tr>
+    
+  
+    <tr>
+    <td colspan="8" align="center" bgcolor="#EAF3FC"><b> 教育经历</b></td>
+  </tr>
+    <tr>
+    <td bgcolor="#EAF3FC">毕业时间</td>
+    <td colspan="4" bgcolor="#ffffff">2002年02月 - 2005年02月</td>
+    <td bgcolor="#EAF3FC">专业</td>
+    <td colspan="2"  bgcolor="#ffffff">电子信息工程</td>
+  </tr>
+  <tr>
+    <td bgcolor="#EAF3FC">学校名称</td>
+    <td colspan="4" bgcolor="#ffffff">农工商学院</td>
+    <td bgcolor="#EAF3FC">担任职位</td>
+    <td colspan="2" bgcolor="#ffffff"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#EAF3FC">专业描述</td>
+    <td colspan="7" bgcolor="#ffffff">电子信息工程</td>
+  </tr>
+            
+      <tr>
+    <td colspan="8" align="center" bgcolor="#EAF3FC"><b> 工作经历</b></td>
+  </tr>
+    <tr>
+    <td align="center" bgcolor="#EAF3FC">单位名称</td>
+    <td colspan="4" bgcolor="#ffffff">一通网络</td>
+    <td bgcolor="#EAF3FC">担任职位</td>
+    <td colspan="2" bgcolor="#ffffff">设计主管</td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#EAF3FC">所属部门</td>
+    <td colspan="4" bgcolor="#ffffff">设计</td>
+    <td bgcolor="#EAF3FC">工作时间</td>
+    <td colspan="2" bgcolor="#ffffff">2005年02月 -2010年02月</td>
+  </tr>
+  <tr>
+    <td bgcolor="#EAF3FC">工作描述</td>
+    <td colspan="7" bgcolor="#ffffff">设计</td>
+  </tr>
+      
+  
+  
+  
+      <tr>
+    <td colspan="8" align="center"  bgcolor="#EAF3FC"><b>联系方式</b></td>
+  </tr>
+  <tr>
+    <td  bgcolor="#EAF3FC">手机</td>
+    <td colspan="7" bgcolor="#ffffff">15920258490</td>
+  </tr>
+    <tr>
+    <td  bgcolor="#EAF3FC">座机</td>
+    <td colspan="7" bgcolor="#ffffff"></td>
+  </tr>
+    <tr>
+    <td  bgcolor="#EAF3FC">电子邮件</td>
+    <td colspan="7" bgcolor="#ffffff">820591677@qq.com</td>
+  </tr>
+    </tbody>
+  
+</table>
+</body>
+</html>

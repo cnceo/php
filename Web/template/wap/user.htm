@@ -1,0 +1,61 @@
+{yun:}include file="$wapstyle/header.htm"{/yun}
+<!-- Content area -->
+<div class="body_wap">
+<header>
+   <div class="header">
+    <div class="header_bg"> <a class="hd-lbtn" href="javascript:history.back();"><i class="header_top_l fa fa-chevron-left"></i></a>
+       <div class="header_h1">找人才</div>
+       <label for="tm"><i class="header_top_r fa fa-th "></i></label>
+     </div>
+  </div>
+ </header>
+ <script src="http://www.hr135.com/app/template/wap/js/search.js" language="javascript"></script>
+
+<section>
+  <div class="warp_content clear">
+    <form method="get" action="index.php">
+      <input type="hidden" name="c" value="resume" />
+      <div class="formFiled">
+          <input type="text" value="" name="keyword" class="input_search" placeholder="请输入关键字">
+        <input type="submit" value="搜索" class="input_btn">
+      </div>
+    </form>
+  <div class="job_list_content">     
+  
+  
+{yun:}userlist limit=20 edu=auto.edu exp=auto.exp sex=auto.sex uptime=auto.uptime keyword=auto.keyword hy=auto.hy provinceid=auto.provinceid report=auto.report cityid=auto.cityid three_cityid=auto.three_cityid jobids=auto.jobids job_classid=auto.job_classid post_len=14 ispage=1 islt=4 item=user{/yun} 
+    <div class="user_list_cont"> 
+     <a href="{yun:}wapurl url=m:user,c:show,id:`$user.id`{/yun}" class="user_list_b">
+      <div class="user_list">
+        <aside class="user_tj_photo">  <img src="http://www.hr135.com/data/logo/20141210/14204024737.JPG">  </aside>
+        <h3><span class="c288">{yun:}$user.username_n{/yun}</span><em class="user_xinx">{yun:}if $user.age==0{/yun}保密{yun:}else{/yun}{yun:}$user.age{/yun}岁{yun:}/if{/yun}</em></h3>
+        
+		<aside class="user_list_p"> <em class="user_p_p1"><i class="user_map fa fa-map-marker"></i><span class="user_city_n">上海-上海</span></em> <em class="user_p_ov"><span class="user_list_n">意向：</span><span class="
+user_list_yx_w">{yun:}$user.job_post_n{/yun}</span></em> </aside>
+
+        <aside class="user_list_p"> <em class="user_p_p1"><i class="user_map fa fa-usd"></i><span class="cf60">3000 - 4499</span> </em> <span class="user_list_n">经验：</span><span class="user_list_yx_w">1年以上</span> </aside>
+        <!--<i class="user_icon_zd">置顶</i>--> </div>
+      </a> 
+	  </div>
+{yun:}/userlist{/yun} 
+		
+  {yun:}if $total<=0{/yun}
+  {yun:}if $smarty.get.keyword!="" {/yun} 
+  <div class="wap_member_no">没有搜索到人才</div>
+  {yun:}else{/yun}
+  <div class="wap_member_no">暂无人才</div>
+  {yun:}/if{/yun}
+  {yun:}else{/yun}
+  <div class="pages"> {yun:}$pagenav{/yun}</div>
+  {yun:}/if{/yun}
+  
+  
+  	
+     </div>
+	 
+	 
+
+   
+   </div>
+</div>
+{yun:}include file="$wapstyle/footer.htm"{/yun}

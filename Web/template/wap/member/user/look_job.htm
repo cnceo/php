@@ -1,0 +1,42 @@
+{yun:}include file="$wapstyle/member/header.htm"{/yun} 
+<!-- Content area -->
+<div class="body_wap">
+<header>
+   <div class="header_bg"> <a class="hd-lbtn" href="javascript:history.back();"><i class="header_top_l fa fa-chevron-left"></i></a>
+    <div class="header_h1">个人会员中心</div>
+    <label for="tm"><i class="header_top_r fa fa-th "></i></label>
+  </div>
+ </header> 
+<div class="main_member_body">  
+<div class="main_member_cot_box">
+<div class="wap_member_comp_h1"><span>我浏览过的职位</span></div>
+<div class="wap_member_Receive">
+
+
+
+
+
+{yun:}foreach item=one from=$look{/yun}
+	<div class="wap_member_msg wap_member_msg_after"> 
+				 <span><a href="{yun:}wapurl m=com url=c:view,id:`$one.job_id`{/yun}"  class="wap_Title_span_com">{yun:}$one.jobname{/yun}</a>
+				 <!--<span class="wap_member_post_list_zt">招聘中</span> -->
+				 </span>
+		   <div class="wap_member_msg_p1"> <a href="{yun:}wapurl m=firm url=c:show,id:`$one.com_id`{/yun}">{yun:}$one.comname{/yun}</A></div>     
+        <div class="wap_member_msg_p1_xz"><span class="member_c9">地区：</span>{yun:}$one.provinceid{/yun}-{yun:}$one.cityid{/yun}&nbsp;&nbsp;&nbsp;<span class="member_c9">薪资：</span><span class="wap_member_msg_p1_cf">{yun:}$one.salary{/yun}</span></div>
+		  <em class="user_size"><a href="javascript:void(0)"  onclick="isdel('{yun:}$config_wapdomain{/yun}/member/index.php?c=look_job_del&id={yun:}$log.id{/yun}');" class="wap_member_msg_date"> 删除</a></em>
+	
+</div>
+
+{yun:}foreachelse{/yun}  
+         	<div class="wap_member_no">您还没有浏览过的职位。</div>
+{yun:}/foreach{/yun} 
+
+
+ 
+</div>
+ 
+<div class="pages"> {yun:}$pagenav{/yun}</div>
+ 
+
+</div> 
+{yun:}include file="$wapstyle/footer.htm"{/yun}

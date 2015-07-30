@@ -1,0 +1,35 @@
+/* Ê¹ÓÃÍ¼Æ¬ÎÄ¼þ   */ 
+/* http://img.quickapp.cn/5/1100009505/sys/sys-box-1.png     */ 
+/* http://img.quickapp.cn/5/1100009505/sys/sys-box-2.png     */ 
+/* Í¼Æ¬ÏÔÊ¾¿ò */ 
+.box-gray-1	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)  0px   -80px; }
+.box-gray-2	{ cheight: 8px; 	   background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)  0px  -120px; }
+.box-gray-3	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png) -52px   -80px; }
+.box-gray-4	{ 		width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-2.png) -30px     0px; }
+.box-gray-5	{ color:#555; font-size:13px; font-weight:500; line-height:23px; background-color:#F0F0F0;  }
+.box-gray-6	{ 		width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-2.png) -52px     0px; }
+.box-gray-7	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)   0px  -112px; }
+.box-gray-8	{ height: 8px;     background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)   0px  -152px; }
+.box-gray-9	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png) -52px  -112px; }
+
+.box-blue-1	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)  -1px  -161px; }
+.box-blue-2	{ height: 8px; 	   background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)   0px  -201px; }
+.box-blue-3	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png) -52px  -161px; }
+.box-blue-4	{ 		width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-2.png) -61px     0px; }
+.box-blue-5	{ color:#555; font-size:13px; font-weight:500; line-height:23px; background-color: #006AC0;  }
+.box-blue-6	{ 		width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-2.png) -82px     0px; }
+.box-blue-7	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)  -1px  -192px; }
+.box-blue-8	{ height: 8px;     background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)   0px  -233px; }
+.box-blue-9	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png) -52px  -192px; }
+
+.box-white-1	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)  0px  -241px; }
+.box-white-2	{ height: 8px; 	   background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)   0px  -281px; }
+.box-white-3	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png) -52px  -241px; }
+.box-white-4	{ 		width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-2.png) -90px     0px; }
+.box-white-5	{ color:#555; font-size:13px; font-weight:500;   background-color: #ffffff;  }
+.box-white-6	{ 		width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-2.png) -112px     0px; }
+.box-white-7	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)   0px  -273px; }
+.box-white-8	{ height: 8px;     background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png)   0px  -313px; }
+.box-white-9	{ height: 8px; width:8px; background:url(http://img.quickapp.cn/5/1100009505//sys/sys-box-1.png) -52px  -273px; }
+/* endÍ¼Æ¬ÏÔÊ¾¿ò */ 
+
